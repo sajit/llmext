@@ -47,7 +47,6 @@ LLMExt is a Chrome extension designed to extract and display webpage contents. I
 - [settings.js](http://_vscodecontentref_/5): JavaScript file for handling settings page interactions.
 - [popup.js](http://_vscodecontentref_/6): JavaScript file for handling popup interactions.
 - [styles.css](http://_vscodecontentref_/7): CSS file for styling the popup and settings pages.
-- [webpack.config.js](http://_vscodecontentref_/8): Configuration file for Webpack.
 
 ## Scripts
 
