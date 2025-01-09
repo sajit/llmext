@@ -1,8 +1,8 @@
 import { convert } from "html-to-text";
+import axios from "axios";
 
 document.addEventListener("DOMContentLoaded", async () => {
-  //const outputElement = document.getElementById("output");
-  console.log('Dom loaded in popup.js');
+
   document.getElementById("fetchContent").addEventListener("click", () => {
     // Fetch the active tab and send a request to the background script
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
@@ -25,4 +25,19 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     });
   });
+
+
+const apiResponse = document.getElementById("openAIResponse");
+
+// Fetch API data when button is clicked
+document.getElementById("fetchData").addEventListener("click", async () => {
+apiResponse.textContent = "Fetching data...";
+try {
+  const response = await axios.get("https://jsonplaceholder.typicode.com/posts/1");
+  apiResponse.textContent = JSON.stringify(response.data, null, 2);
+} catch (error) {
+  apiResponse.textContent = `Error: ${error.message}`;
+}
+});
+
 });

@@ -9,13 +9,16 @@
   "version": "1.0.0",
   "main": "popup.js",
   "scripts": {
-    "build": "esbuild src/popup.js --bundle --outfile=dist/popup.js"
+    "clean": "rm -f dist/popup.js",
+    "build": "esbuild src/popup.js --bundle --outfile=dist/popup.js",
+    "clean-build": "npm run clean && npm run build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "axios": "^1.7.9",
     "html-to-text": "9.0.5"
   }
 }
