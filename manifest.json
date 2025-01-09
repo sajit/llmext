@@ -5,23 +5,17 @@
     "description": "Extract and display webpage contents.",
     "action": {
       "default_popup": "popup.html",
-      "default_title": "LLMCEXT",
+      "default_title": "LLMEXT",
       "default_icon": {
         "16": "icon.png",
         "48": "icon.png",
         "128": "icon.png"
       }
     },
-    "permissions": ["activeTab", "scripting"],
+    "permissions": ["activeTab", "scripting","storage"],
     "host_permissions": ["<all_urls>"],
     "background": {
       "service_worker": "background.js"
-    },
-    "web_accessible_resources": [
-      {
-        "resources": ["dist/langchain.js"],
-        "matches": ["<all_urls>"]
-      }
-    ]
+    }
   }
   
