@@ -7568,6 +7568,13 @@ ${"".padEnd(offset)}${"^".repeat(len)}`;
 
   // src/popup.js
   document.addEventListener("DOMContentLoaded", async () => {
+    var apiKey;
+    chrome.storage.local.get("apiKey", (data) => {
+      if (data.apiKey) {
+        console.log("API Key found:", data.apiKey);
+        apiKey = data.apiKey;
+      }
+    });
     document.getElementById("fetchContent").addEventListener("click", () => {
       chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         const activeTab = tabs[0];
@@ -7590,6 +7597,10 @@ ${"".padEnd(offset)}${"^".repeat(len)}`;
     });
     const apiResponse = document.getElementById("openAIResponse");
     document.getElementById("fetchData").addEventListener("click", async () => {
+      if (!apiKey) {
+        apiResponse.textContent = "Please enter an API key in the settings.";
+        return;
+      }
       apiResponse.textContent = "Fetching data...";
       try {
         const response = await axios_default.get("https://jsonplaceholder.typicode.com/posts/1");
