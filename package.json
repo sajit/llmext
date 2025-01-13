@@ -9,8 +9,8 @@
   "version": "1.0.0",
   "main": "popup.js",
   "scripts": {
-    "clean": "rm -f dist/popup.js",
-    "build": "esbuild src/popup.js --bundle --outfile=dist/popup.js",
+    "clean": "rm -f dist/*.js",
+    "build": "node build.js",
     "clean-build": "npm run clean && npm run build"
   },
   "keywords": [],
@@ -18,6 +18,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@langchain/core": "^0.3.29",
+    "@langchain/ollama": "^0.1.4",
     "axios": "^1.7.9",
     "html-to-text": "9.0.5"
   }
